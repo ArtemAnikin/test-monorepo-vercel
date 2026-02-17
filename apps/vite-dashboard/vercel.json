@@ -1,12 +1,6 @@
 {
-  "buildCommand": "cd ../.. && npx nx build vite-dashboard",
-  "outputDirectory": ".next",
+  "buildCommand": "cd ../.. && npm run build:vite-dashboard",
+  "outputDirectory": "dist",
   "installCommand": "cd ../.. && npm ci",
-  "framework": "nextjs",
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/$1"
-    }
-  ]
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }
