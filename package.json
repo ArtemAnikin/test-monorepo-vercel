@@ -5,6 +5,15 @@
     "apps/*"
   ],
   "scripts": {
-    "build": "npm run build --workspaces --if-present"
+    "build": "npm run build --workspaces --if-present",
+    "dev:next-web": "npm run dev --workspace next-web",
+    "dev:next-docs": "npm run dev --workspace next-docs",
+    "dev:vite-dashboard": "npm run dev --workspace vite-dashboard",
+    "build:next-web": "npm run build --workspace next-web",
+    "build:next-docs": "npm run build --workspace next-docs",
+    "build:vite-dashboard": "npm run build --workspace vite-dashboard",
+    "lint:next-web": "npm run lint --workspace next-web",
+    "lint:next-docs": "npm run lint --workspace next-docs",
+    "lint:vite-dashboard": "npm run lint --workspace vite-dashboard"
   }
 }
