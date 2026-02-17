@@ -1,0 +1,12 @@
+{
+  "buildCommand": "cd ../.. && npx nx build vite-dashboard",
+  "outputDirectory": ".next",
+  "installCommand": "cd ../.. && npm ci",
+  "framework": "nextjs",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/$1"
+    }
+  ]
+}
