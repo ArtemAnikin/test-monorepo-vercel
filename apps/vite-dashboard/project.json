@@ -1,0 +1,40 @@
+{
+  "name": "vite-dashboard",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/vite-dashboard",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "tsc -b && vite build",
+        "cwd": "apps/vite-dashboard"
+      },
+      "configurations": {}
+    },
+    "dev": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "vite",
+        "cwd": "apps/vite-dashboard"
+      },
+      "configurations": {}
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "eslint .",
+        "cwd": "apps/vite-dashboard"
+      },
+      "configurations": {}
+    },
+    "preview": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "vite preview",
+        "cwd": "apps/vite-dashboard"
+      },
+      "configurations": {}
+    }
+  }
+}

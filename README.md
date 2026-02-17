@@ -32,11 +32,19 @@ This repo uses **Nx** for task orchestration, caching, and affected builds.
    - Project for next-docs: `apps/next-docs`
    - Project for vite-dashboard: `apps/vite-dashboard`
 
-3. **Build settings**
-   - Next.js apps: use defaults (Vercel auto-detects).
-   - vite-dashboard: set **Build Command** to `npm run build` and **Output Directory** to `dist`.
+3. **Install Command** (required for npm workspaces)  
+   So the root lockfile and all workspace deps are installed, set **Install Command** to:
+   ```bash
+   cd ../.. && npm ci
+   ```
+   (Vercel runs this from the Root Directory, so this installs from the repo root.)
 
-4. **Conditional builds**  
+4. **Build Command** — do **not** use Nx on Vercel  
+   Nx lives at the repo root; the build runs from the app directory, so Nx is not available. Use the app's script only:
+   - **Next.js (next-web, next-docs):** leave **Build Command** empty (Vercel auto-detects `next build`) or set to `npm run build`.
+   - **vite-dashboard:** set **Build Command** to `npm run build` and **Output Directory** to `dist`.
+
+5. **Conditional builds**  
    With the repo connected via **GitHub** and Root Directory set per project, Vercel will skip building a project when the commit does not change that app or its workspace dependencies. No extra “Ignored Build Step” is required.
 
 The repo uses **npm workspaces** and a single root `package-lock.json`; the lockfile must remain at the repository root for this behavior.
