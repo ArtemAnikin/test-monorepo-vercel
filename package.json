@@ -5,15 +5,23 @@
     "apps/*"
   ],
   "scripts": {
-    "build": "npm run build --workspaces --if-present",
-    "dev:next-web": "npm run dev --workspace next-web",
-    "dev:next-docs": "npm run dev --workspace next-docs",
-    "dev:vite-dashboard": "npm run dev --workspace vite-dashboard",
-    "build:next-web": "npm run build --workspace next-web",
-    "build:next-docs": "npm run build --workspace next-docs",
-    "build:vite-dashboard": "npm run build --workspace vite-dashboard",
-    "lint:next-web": "npm run lint --workspace next-web",
-    "lint:next-docs": "npm run lint --workspace next-docs",
-    "lint:vite-dashboard": "npm run lint --workspace vite-dashboard"
+    "build": "nx run-many -t build",
+    "dev:next-web": "nx run next-web:dev",
+    "dev:next-docs": "nx run next-docs:dev",
+    "dev:vite-dashboard": "nx run vite-dashboard:dev",
+    "build:next-web": "nx run next-web:build",
+    "build:next-docs": "nx run next-docs:build",
+    "build:vite-dashboard": "nx run vite-dashboard:build",
+    "lint:next-web": "nx run next-web:lint",
+    "lint:next-docs": "nx run next-docs:lint",
+    "lint:vite-dashboard": "nx run vite-dashboard:lint",
+    "start:next-web": "nx run next-web:start",
+    "start:next-docs": "nx run next-docs:start",
+    "preview:vite-dashboard": "nx run vite-dashboard:preview",
+    "affected:build": "nx affected -t build",
+    "affected:lint": "nx affected -t lint"
+  },
+  "devDependencies": {
+    "nx": "^22.5.1"
   }
 }

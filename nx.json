@@ -1,0 +1,41 @@
+{
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "targetDefaults": {
+    "build": {
+      "cache": true,
+      "outputs": [
+        "{projectRoot}/.next",
+        "{projectRoot}/dist"
+      ],
+      "inputs": [
+        "default",
+        "^default"
+      ]
+    },
+    "lint": {
+      "cache": true,
+      "inputs": [
+        "default",
+        "{workspaceRoot}/.eslintrc*",
+        "{workspaceRoot}/eslint.config.*"
+      ]
+    },
+    "dev": {
+      "cache": false
+    },
+    "start": {
+      "cache": false
+    },
+    "preview": {
+      "cache": false
+    }
+  },
+  "namedInputs": {
+    "default": [
+      "{projectRoot}/**/*",
+      "!{projectRoot}/.next/**",
+      "!{projectRoot}/dist/**",
+      "!{projectRoot}/node_modules/**"
+    ]
+  }
+}

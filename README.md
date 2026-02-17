@@ -12,12 +12,16 @@ This monorepo contains three apps, each deployed as a separate Vercel project. O
 
 ## Local development
 
+This repo uses **Nx** for task orchestration, caching, and affected builds.
+
 - Install dependencies (from repo root): `npm install`
-- Build all apps: `npm run build`
+- Build all apps: `npm run build` (or `nx run-many -t build`)
 - Run a single app:
-  - `cd apps/next-web && npm run dev`
-  - `cd apps/next-docs && npm run dev`
-  - `cd apps/vite-dashboard && npm run dev`
+  - `npm run dev:next-web` or `nx run next-web:dev`
+  - `npm run dev:next-docs` or `nx run next-docs:dev`
+  - `npm run dev:vite-dashboard` or `nx run vite-dashboard:dev`
+- Build/lint only affected projects: `npm run affected:build`, `npm run affected:lint`
+- List projects: `nx show projects`
 
 ## Vercel deployment
 
